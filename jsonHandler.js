@@ -11,7 +11,7 @@ function writeObjectAsFile(path, object) {
 function readFileAsObject(path) {
     let content = fs.readFileSync(path);
     let result = JSON.parse(content);
-    console.log(result);
+    return result;
 }
 
 module.exports = {
