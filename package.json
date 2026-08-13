@@ -1,0 +1,24 @@
+{
+  "name": "recetario",
+  "version": "1.0.0",
+  "description": "An Obsidian inspired recipe vault",
+  "keywords": [
+    "cooking"
+  ],
+  "homepage": "https://github.com/PabluxFirpux/recetario#readme",
+  "bugs": {
+    "url": "https://github.com/PabluxFirpux/recetario/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PabluxFirpux/recetario.git"
+  },
+  "license": "ISC",
+  "author": "PabluxFirpux",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js new"
+  }
+}
