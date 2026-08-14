@@ -1,0 +1,19 @@
+{
+    "ingredients": [
+        {
+            "ingredient_id": "patata",
+            "description": "Patata africana",
+            "units": "g"
+        },
+        {
+            "ingredient_id": "tomate",
+            "description": "Tomate de Ensalada",
+            "units": "g"
+        },
+        {
+            "ingredient_id": "aove",
+            "description": "Aceite de Oliva Virgen Extra",
+            "units": "ml"
+        }
+    ]
+}

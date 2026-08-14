@@ -4,4 +4,7 @@ An Obsidian inspired recipe vault
 
 ### To Implement
 - [ ] unit types
-- [ ] IngredientsDB
+- [x] IngredientsDB
+- [ ] IngredientsRecipeItem
+- [ ] Recipe class
+- [ ] Persistence check
