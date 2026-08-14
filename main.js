@@ -12,5 +12,13 @@ function main() {
     let respuesta = prompting.getNumberFromUser("Numero fav? ");
     console.log(respuesta);
 }
+const opt = [
+    "Nueva receta",
+    "Ver boveda",
+    "Ver lista de ingredientes"
+]
 
+prompting.menu(opt,(x) => {
+    console.log("Done, you chose: " + x);
+})
 console.log(process.argv.slice(2))

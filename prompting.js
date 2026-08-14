@@ -21,7 +21,22 @@ function getNumberFromUser(question) {
     return respuestaDefinitiva;
 }
 
+function menu(options, callback) {
+
+    for (let i = 0; i < options.length; i++) {
+        console.log(`${i+1}. ${options[i]}`);
+    }
+
+    let x = getNumberFromUser("Que opcion eliges? ");
+    if (x <= 0 || x > options.length) {
+        console.log("Seleccion invalida");
+        return;
+    }
+    callback(x);
+}
+
 module.exports = {
     getUserInput,
-    getNumberFromUser
+    getNumberFromUser,
+    menu
 }
