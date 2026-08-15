@@ -69,8 +69,14 @@ function testRecipe() {
         "Mezclar ingredientes",
         "Rezar a jesucristo"
     ]
+    let databaseInfo = jsonHandler.readFileAsObject("ingredients.json");
+    const database = new IngredientDataBase();
+    database.addIngredientList(databaseInfo.ingredients);
     let Receta = new Recipe(name, ingredientes, procedimiento);
+    console.log("Print default:");
     Receta.printRecipe(DB);
+    console.log("Print regurgitado:");
+    Receta.printRecipe(database);
     jsonHandler.writeObjectAsFile("Receta.json", Receta);
 
 }

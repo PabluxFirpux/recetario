@@ -9,6 +9,12 @@ class IngredientDataBase {
         this.ingredients.push(ingredient);
     }
 
+    addIngredientList(ingredients) {
+        for (let x in ingredients) {
+            this.ingredients.push(ingredients[x]);
+        }
+    }
+
     getIngredientByID(ingredient_id) {
         for (let x in this.ingredients) {
             if (this.ingredients[x].ingredient_id == ingredient_id) return this.ingredients[x];
