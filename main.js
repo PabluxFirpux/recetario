@@ -1,15 +1,12 @@
 const IngredientDBItem = require('./IngredientDBItem.js');
 const IngredientDataBase = require('./IngredientDataBase.js');
+const RecipeIngredient = require('./RecipeIngredient.js');
+const Recipe = require('./Recipe.js');
 const jsonHandler = require('./jsonHandler.js');
 const prompting = require('./prompting.js');
 
 
-function main() {    
-        
-    let patata = new IngredientDBItem("patata", "Patata africana", "g");
-    patata.displayInfo();
-    let regurgitada_Patata = jsonHandler.readFileAsObject("patata.json");
-    console.log(regurgitada_Patata.ingredient_id);
+function main() { 
     let respuesta = prompting.getNumberFromUser("Numero fav? ");
     console.log(respuesta);
 }
@@ -21,7 +18,11 @@ function promptTest() {
         "Ver lista de ingredientes"
     ]
     prompting.menu(opt,(x) => {
-        console.log("Done, you chose: " + x);
+        switch(x) {
+            case "1": console.log("Nueva receta fabricandose"); break;
+            case "2": console.log("Boveda de recetas: "); break;
+            case "3": console.log("Lista de ingredientes: "); break;
+        }
     })
 }
 
@@ -39,7 +40,40 @@ function testDB() {
     console.log(fil.ingredients);
 }
 
+function testRecipeItemText() {
+    const DB = new IngredientDataBase();
+    let aove = new IngredientDBItem("aove", "Aceite de Oliva Virgen Extra", "ml");
+    DB.addIngredient(aove);
 
+    let ing1 = new RecipeIngredient("aove", 300);
+    let ing2 = new RecipeIngredient("nachos", 300);
+
+    console.log(ing1.getText(DB));
+    console.log(ing2.getText(DB));
+    
+}
+
+function testRecipe() {
+    const DB = new IngredientDataBase();
+    let aove = new IngredientDBItem("aove", "Aceite de Oliva Virgen Extra", "ml");
+    DB.addIngredient(aove);
+
+    let ing1 = new RecipeIngredient("aove", 300);
+    let ing2 = new RecipeIngredient("nachos", 300);
+    let name = "Nachos con aceite";
+    let ingredientes = [
+        ing1,
+        ing2
+    ];
+    let procedimiento = [
+        "Mezclar ingredientes",
+        "Rezar a jesucristo"
+    ]
+    let Receta = new Recipe(name, ingredientes, procedimiento);
+    Receta.printRecipe(DB);
+    jsonHandler.writeObjectAsFile("Receta.json", Receta);
+
+}
 
 console.log(process.argv.slice(2))
-testDB();
+//promptTest();
